@@ -1,0 +1,21 @@
+{{#with footer}}
+<footer>
+    <hr>
+    <br>
+    <div>
+        {{#with social}}
+        {{> link text=email.text header=email.href blank=true }}
+        {{> link text=phone.text header=phone.href blank=true }}
+        {{> link text=linkedin.text header=linkedin.href blank=true noline=true }}
+        {{/with}}
+    </div>
+    <br>
+    <div>
+        <em>Copyright by {{../header/name/firstname}} {{../header/name/lastname}}</em>
+    </div>
+    <br>
+    <div>
+        <em>{{../header/address}}</em>
+    </div>
+</footer>
+{{/with}}
