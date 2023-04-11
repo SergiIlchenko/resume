@@ -37,9 +37,11 @@
                         </li>
                         {{/each}}
                     </ol>
+                    {{#if groups}}
                     <em>
                         <h3>Groups</h3>
                     </em>
+                    {{/if}}
                     <ul>
                         {{#each groups}}
                         <li>
@@ -57,6 +59,32 @@
                                 {{/each}}
                             </ul>
                         </li>
+                        {{/each}}
+                    </ul>
+                    {{#each friends}}
+                    {{#if groups}}
+                    <em>
+                        <h3>Groups</h3>
+                    </em>
+                    {{/if}}
+                    <ul>
+                        {{#each groups}}
+                        <li>
+                            <div>id: {{id}}</div>
+                            <div>name: {{name}}</div>
+                            <div>{{description}}</div>
+                            <em>
+                                <h4>Members</h4>
+                            </em>
+                            <ul>
+                                {{#each members}}
+                                <li>
+                                    {{> user}}
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                        {{/each}}
                         {{/each}}
                     </ul>
                 </li>
