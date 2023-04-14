@@ -63,13 +63,11 @@
             <table class="table">
                 <thead>
                     <tr>
+                        {{#each head}}
                         <th>
-
-                            {{#each head}}
                             {{this}}
-                            {{/each}}
-
                         </th>
+                        {{/each}}
                     </tr>
                 </thead>
 
@@ -100,13 +98,11 @@
                 </div>
 
                 <ul class="list-group">
+                    {{#each items}}
                     <li class="list-group-item">
-                        <ul>
-                            {{#each items}}
-                            <li>{{this}}</li>
-                            {{/each}}
-                        </ul>
+                        {{this}}
                     </li>
+                    {{/each}}
                 </ul>
             </div>
         </section>
@@ -180,22 +176,28 @@
 
         {{#with footer}}
         <h5>{{title}}</h5>
-        <section class="col-12">
-            {{#each navigation}}
+        <section class="row col-12">
+
             <div class="col-3">
+                {{#each navigation}}
                 <a href={{href}} class="btn btn-link">{{text}}</a>
+                {{/each}}
             </div>
-            {{/each}}
-            {{#each socialMedia}}
+
+
             <div class="col-3">
+                {{#each socialMedia}}
                 <a href={{link}} class="btn btn-dark">{{name}}</a>
+                {{/each}}
             </div>
-            {{/each}}
-            {{#each partners}}
-            <div class="col-3">
+
+
+            <div class="col-4">
+                {{#each partners}}
                 <a href={{link}} class="btn btn-info">{{name}}</a>
+                {{/each}}
             </div>
-            {{/each}}
+
         </section>
         {{/with}}
     </div>
