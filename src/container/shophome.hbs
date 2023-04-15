@@ -1,0 +1,131 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<main class="p-5">
+    <hr />
+    <div class="row">
+        <div class="col-12 mb-5">
+            <div class="nav nav-tabs">
+                {{#with navigation}}
+                {{#each links}}
+                <div class="nav-item">
+                    <a href={{href}} class="nav-link">{{text}}</a>
+                </div>
+                {{/each}}
+                {{/with}}
+            </div>
+        </div>
+
+        {{#with newsBlock}}
+        <h1 class="text-center mb-5">{{title}}</h1>
+
+        <div class="col-12">
+            <div class="row g-2">
+                {{#each cards}}
+                <div class="card col-3 mb-4">
+                    <div class="card header text-bg-dark">{{title}}
+                        {{#if isTop}}
+                        <span class="badge text-bg-danger rounded-pill col-4">Топ</span>
+                        {{/if}}
+                        {{#if isNew}}
+                        <span class="badge text-bg-success rounded-pill col-4">Нова</span>
+                        {{/if}}
+                    </div>
+                    <div class="card body text-bg-secondary">
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/with}}
+
+        <hr />
+
+        {{#with goodsBlock}}
+        <div class="col-12">
+            <div class="nav nav-tabs mb-4">
+                {{#each tabs}}
+                <div class="nav-item">
+                    {{#if isActive}}
+                    <a href="#" class="nav-link active">{{text}}</a>
+                    {{else}}
+                    <a href="#" class="nav-link">{{text}}</a>
+                    {{/if}}
+                    {{#if isDisabled}}
+                    <a href="#" class="nav-link disabled">{{text}}</a>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row g-2">
+                {{#each cards}}
+                <div class="card col-4 mb-4">
+                    <img class="card-img-top" src={{image}} alt="Product photo">
+                    <div class="card body">
+                        <div class="card title">{{title}}
+                            {{#if isHot}}
+                            <span class="badge text-bg-warning rounded-pill text-uppercase col-4">Hot!</span>
+                            {{/if}}
+                            {{#if isNew}}
+                            <span class="badge text-bg-primary rounded-pill col-4">New</span>
+                            {{/if}}
+                        </div>
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/with}}
+
+        <hr />
+
+        <div class="alert alert-dark">
+            {{#with subscribe}}
+            <h2 class="mb-2">
+                {{header}}
+            </h2>
+            <p>{{description}}</p>
+            {{#each buttons}}
+            <div><a href={{link}} class="btn btn-primary mb-2">{{text}}</a></div>
+            {{/each}}
+            {{/with}}
+        </div>
+
+        <hr />
+
+        <div class="alert alert-success text-center">
+            {{#with service}}
+            <h2 class="mb-2">
+                {{title}}
+            </h2>
+            <p>{{description}}</p>
+            {{#each buttons}}
+            <div><a href={{link}} class="btn btn-primary mb-2">{{text}}</a></div>
+            {{/each}}
+            {{/with}}
+        </div>
+
+        <hr />
+
+
+        <div class="row col-12">
+            <div class="col-2">
+                {{#each footer}}
+                <a href={{link}} class="btn btn-link">{{text}}</a>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+</main>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
