@@ -115,11 +115,13 @@
 
 
         <div class="row col-12">
-            <div class="col-2">
-                {{#each footer}}
-                <a href={{link}} class="btn btn-link">{{text}}</a>
+            {{#each footer}}
+            <div class="nav col-2">
+                {{#each this}}
+                <a href={{this.link}} class="btn btn-link">{{this.text}}</a>
                 {{/each}}
             </div>
+            {{/each}}
         </div>
 
     </div>
