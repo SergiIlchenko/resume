@@ -1,0 +1,9 @@
+<div class="row col-12">
+    {{#each footer}}
+    <div class="nav col-2">
+        {{#each this}}
+        <a href={{this.link}} class="btn btn-link">{{this.text}}</a>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>
