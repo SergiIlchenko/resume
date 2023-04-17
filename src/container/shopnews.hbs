@@ -1,0 +1,49 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<div>
+    {{> breadcrumb}}
+</div>
+
+<div class="my-3">
+    {{#with newsData}}
+    <img heigh="300" width="600" src={{photo}}>
+</div>
+
+<div class="mb-5">
+    {{#with head}}
+    <h1>{{heading}}</h1>
+    <p>{{description}}</p>
+    {{/with}}
+</div>
+
+<div class="mb-5">
+    {{#each body}}
+    <h3>{{title}}</h3>
+    <p>{{text}}</p>
+    {{/each}}
+</div>
+{{/with}}
+
+<hr />
+
+{{#with newsOtherBlock}}
+<h2 class="text-center">{{title}}</h2>
+<div class="mt-2">
+    {{> shoppost}}
+</div>
+{{/with}}
+
+<hr />
+
+<div class="my-5">
+    {{> shopaction}}
+</div>
+
+<hr />
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
