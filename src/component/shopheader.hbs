@@ -1,0 +1,11 @@
+<div class="col-12 mb-5">
+    <div class="nav nav-tabs">
+        {{#with navigation}}
+        {{#each links}}
+        <div class="nav-item">
+            <a href={{href}} class="nav-link">{{text}}</a>
+        </div>
+        {{/each}}
+        {{/with}}
+    </div>
+</div>
