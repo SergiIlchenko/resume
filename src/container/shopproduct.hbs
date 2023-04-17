@@ -22,23 +22,21 @@
                 <h3 class="card-title">{{title}}</h3>
                 <p>{{about}}</p>
                 <h2>{{price}}</h2>
-                <div class="row col-12 mx-1">
+                <div class="row col-12">
                     {{#each category}}
-                    <div class="col-2">
+                    <div class="col-2 mx-1">
                         {{#if isHot}}
                         <span class="badge text-bg-warning rounded-pill text-uppercase">
                             {{name}}
                         </span>
                         {{/if}}
-                    </div>
-                    <div class="col-2">
+
                         {{#if isNew}}
                         <span class="badge text-bg-primary rounded-pill text-uppercase">
                             {{name}}
                         </span>
                         {{/if}}
-                    </div>
-                    <div class="col-2">
+
                         {{#if isBonus}}
                         <span class="badge text-bg-info rounded-pill">
                             {{name}}
@@ -104,22 +102,22 @@
     <div class="alert alert-light mt-3 mb-5">
         {{#each actionList}}
         {{#if isWarning}}
-        <button class="btn btn-warning">
+        <button class="btn btn-warning col-2">
             {{name}}
         </button>
         {{/if}}
         {{#if isError}}
-        <button class="btn btn-outline-danger">
+        <button class="btn btn-outline-danger col-3">
             {{name}}
         </button>
         {{/if}}
         {{#if isSuccess}}
-        <button class="btn btn-success">
+        <button class="btn btn-success col-2">
             {{name}}
         </button>
         {{/if}}
         {{#if isGood}}
-        <button class="btn btn-outline-success">
+        <button class="btn btn-outline-success col-2">
             {{name}}
         </button>
         {{/if}}
