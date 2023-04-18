@@ -2244,6 +2244,15 @@ router.get('/shopnews', function (req, res) {
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
+
+router.get('/bootstrap4', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('bootstrap4', {
+    layout: 'bootstrap',
+  })
+})
 // ================================================================
 // Підключаємо роутер до бек-енду
 module.exports = router
