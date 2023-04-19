@@ -3,7 +3,11 @@
         {{#with navigation}}
         {{#each links}}
         <div class="nav-item">
+            {{#if @last}}
+            <a href={{href}} class="nav-link disabled">{{text}}</a>
+            {{else}}
             <a href={{href}} class="nav-link">{{text}}</a>
+            {{/if}}
         </div>
         {{/each}}
         {{/with}}
