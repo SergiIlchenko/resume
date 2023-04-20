@@ -17,10 +17,43 @@
     {{/each}}
 </div>
 
+<hr class="my-3">
 
+{{#with total}}
+<h3>{{title}}</h3>
+<h1>{{amount}}</h1>
+<p>{{delivery}}</p>
+{{#each buttons}}
+{{#if isSuccess}}
+<div><a href={{link}} class="btn btn-success mb-2">{{text}}</a></div>
+{{/if}}
+{{#if isSuccess}}
+<div><a href={{link}} class="btn btn-outline-success">{{text}}</a></div>
+{{/if}}
+{{/each}}
+{{/with}}
 
+<hr class="my-3">
 
-{{!--
-Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
-Адже наш layout/default.hbs має вже структуру HTML
---}}
+{{#with goodsOtherBlock}}
+<h2 class="text-center">{{title}}</h2>
+{{> shopcard}}
+{{/with}}
+
+<hr class="my-3">
+
+<div class="alert alert-dark">
+    {{#with subscribe}}
+    <h2 class="mb-2">
+        {{header}}
+    </h2>
+    <p>{{description}}</p>
+    {{#each buttons}}
+    <div><a href={{link}} class="btn btn-primary mb-2">{{text}}</a></div>
+    {{/each}}
+    {{/with}}
+</div>
+
+<hr class="my-3">
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs Адже наш
+layout/default.hbs має вже структуру HTML --}}
