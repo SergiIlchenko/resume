@@ -1,0 +1,22 @@
+<div class="alert alert-light p-2 row">
+    <div class="col-3">
+        <h6>{{number}}</h6>
+        <p>{{status}}</p>
+    </div>
+    <div class="col-2">
+        {{#with amount}}
+        <h6>{{title}}</h6>
+        <b class="display-7">{{value}}</b>
+        {{/with}}
+    </div>
+    <div class="col-4">
+        <img class="card-img-top" src={{images}} alt="Product photo">
+    </div>
+    <div class="col-2">
+        {{#with button}}
+        {{#if isPrimary}}
+        <a href={{link}} class="btn btn-primary mb-3">{{text}}</a>
+        {{/if}}
+        {{/with}}
+    </div>
+</div>
