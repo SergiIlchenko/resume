@@ -1,0 +1,28 @@
+<div class="alert alert-light p-2 row">
+    <div class="col-2">
+        <img class="card-img-top" src={{image}} alt="Product photo">
+    </div>
+    <div class="col-4">
+        <h4>{{name}}</h4>
+        <p>{{description}}</p>
+    </div>
+    <div class="col-2">
+        {{#with price}}
+        <h6>{{title}}</h6>
+        <b class="display-7">{{value}}</b>
+        {{/with}}
+    </div>
+    <div class="col-2">
+        <p>{{amount}}</p>
+    </div>
+    <div class="col-2">
+        {{#each buttons}}
+        {{#if isPrimary}}
+        <a class="btn btn-primary mb-3">{{text}}</a>
+        {{/if}}
+        {{#if isDanger}}
+        <a class="btn btn-outline-danger">{{text}}</a>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
