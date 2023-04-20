@@ -1,0 +1,181 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<h1 class="mb-3">{{header}}</h1>
+{{#with purchase}}
+<div class="col-12">
+    <div class="nav nav-tabs mb-3">
+        {{#each tabs}}
+        <div class="nav-item col-4">
+            <a href="#" class="nav-link active">
+                {{this}}
+            </a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{#with actionBlock}}
+<div class="row">
+    {{#with input}}
+    <div class="col-4">
+        <input class="form-control" placeholder={{placeholder}}>
+    </div>
+    {{/with}}
+    {{#each buttons}}
+    {{#if isSuccess}}
+    <div class="col-2">
+        <a href={{link}} class="btn btn-success">{{text}}</a>
+    </div>
+    {{/if}}
+    {{#if isOutline}}
+    <div class="col-3">
+        <a href={{link}} class="btn btn-outline-success">{{text}}</a>
+    </div>
+    {{/if}}
+    {{#if isDanger}}
+    <div class="col-3">
+        <a href={{link}} class="btn btn-outline-danger">{{text}}</a>
+    </div>
+    {{/if}}
+    {{/each}}
+</div>
+{{/with}}
+
+<hr class="my-3">
+
+{{#each itemList}}
+{{> purchaseItem}}
+{{/each}}
+{{/with}}
+
+<hr class="my-3">
+
+{{#with userInfo}}
+<h2 class="mb-3">{{title}}</h2>
+<div class="alert alert-light row">
+    <h3>{{title}}</h3>
+    {{#with profileData}}
+    <div class="alert alert-light row m-1">
+        {{#with fullName}}
+        {{#with surname}}
+        <div class="col-4">
+            <p>{{title}}</p>
+            <b>{{value}}</b>
+        </div>
+        {{/with}}
+        {{#with name}}
+        <div class="col-4">
+            <p>{{title}}</p>
+            <b>{{value}}</b>
+        </div>
+        {{/with}}
+        {{#with middleName}}
+        <div class="col-4">
+            <p>{{title}}</p>
+            <b>{{value}}</b>
+        </div>
+        {{/with}}
+        {{/with}}
+    </div>
+    <div class="alert alert-light row m-1">
+        {{#with otherInfo}}
+        {{#with birthday}}
+        <div class="col-4">
+            <p>{{title}}</p>
+            <b>{{value}}</b>
+        </div>
+        {{/with}}
+        {{#with sex}}
+        <div class="col-4">
+            <p>{{title}}</p>
+            <b>{{value}}</b>
+        </div>
+        {{/with}}
+        {{#with language}}
+        <div class="col-4">
+            <p>{{title}}</p>
+            <b>{{value}}</b>
+        </div>
+        {{/with}}
+        {{/with}}
+    </div>
+    {{/with}}
+    <div class="alert alert-light row m-1">
+        {{#each buttons}}
+        {{#if isPrimary}}
+        <div class="col-4">
+            <a href={{link}} class="btn btn-primary">{{text}}</a>
+        </div>
+        {{/if}}
+        {{#if isSecondary}}
+        <div class="col-4">
+            <a href={{link}} class="btn btn-outline-secondary">{{text}}</a>
+        </div>
+        {{/if}}
+        {{#if isDanger}}
+        <div class="col-4">
+            <a href={{link}} class="btn btn-outline-danger">{{text}}</a>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
+<div class="alert alert-light row">
+    {{#with recipients}}
+    <h3>{{title}}</h3>
+    {{#each users}}
+    <div class="alert alert-light col-4 m-1">
+        <b>{{name}}</b>
+        <p>{{phone}}</p>
+        {{#with button}}
+        <a href={{link}} class="btn btn-primary">{{text}}</a>
+        {{/with}}
+    </div>
+    {{/each}}
+    {{/with}}
+</div>
+<div class="alert alert-light row">
+    {{#with contacts}}
+    <h3>{{title}}</h3>
+    <div class="alert alert-light col-4">
+        {{#with contactData.phone}}
+        <p>{{title}}</p>
+        <b>{{value}}</b>
+        {{/with}}
+        {{#each buttons}}
+        {{#if isPrimary}}
+        <a href={{link}} class="btn btn-primary mt-3">{{text}}</a>
+        {{/if}}
+        {{/each}}
+    </div>
+    <div class="alert alert-light col-4">
+        {{#with contactData.additionalPhone}}
+        <p>{{title}}</p>
+        <b>{{value}}</b>
+        {{/with}}
+        {{#each buttons}}
+        {{#if isSecondary}}
+        <a href={{link}} class="btn btn-outline-secondary mt-3">{{text}}</a>
+        {{/if}}
+        {{/each}}
+    </div>
+    <div class="alert alert-light col-4">
+        {{#with contactData.email}}
+        <p>{{title}}</p>
+        <b>{{value}}</b>
+        {{/with}}
+        {{#each buttons}}
+        {{#if isDanger}}
+        <a href={{link}} class="btn btn-outline-danger mt-3">{{text}}</a>
+        {{/if}}
+        {{/each}}
+    </div>
+    {{/with}}
+</div>
+{{/with}}
+<hr class="my-3">
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
