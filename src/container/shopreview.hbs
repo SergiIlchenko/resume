@@ -1,0 +1,142 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+{{#with formBlock}}
+<div class="row">
+    <div class="col-8">
+        <h2>{{header}}</h2>
+        {{#with rating}}
+        <p>{{title}}: {{value}}</p>
+        {{/with}}
+        <div class="nav nav-tabs">
+            {{#with actionBlock}}
+            {{#each tabs}}
+            <div class="nav-item">
+                {{#if isActive}}
+                <a href="#" class="nav-link active">{{text}}</a>
+                {{else}}
+                <a href="#" class="nav-link">{{text}}</a>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+
+        <hr class="my-5">
+
+        <div class="alert alert-secondary col-12 m-2">
+            {{#with report}}
+            <p>{{title}}</p>
+            {{#with button}}
+            <a href="link" class="btn btn-secondary">{{text}}</a>
+            {{/with}}
+            {{/with}}
+        </div>
+        {{/with}}
+
+
+        <hr class="my-5">
+
+        {{#with feedbackBlock}}
+        <h3 class="mb-3">{{title}}</h3>
+        {{#each buttons}}
+        {{#if isWarning}}
+        <a href="link" class="btn btn-warning col-3">{{text}}</a>
+        {{/if}}
+        {{#if isSuccess}}
+        <a href="link" class="btn btn-success col-4">{{text}}</a>
+        {{/if}}
+        {{#if isDanger}}
+        <a href="link" class="btn btn-danger col-4">{{text}}</a>
+        {{/if}}
+        {{/each}}
+        {{/with}}
+    </div>
+    <div class="col-4">
+        {{#with goodsInfo}}
+        <div class="alert alert-secondary m-1">
+            <img src={{photo}} alt="Photo product">
+            <h5 class="mt-3">{{name}}</h5>
+        </div>
+        <div class="alert alert-secondary m-1">
+            <h4>{{price}}</h4>
+            {{#if inMarket}}
+            <p>Є в наявності</p>
+            {{/if}}
+            {{#each buttons}}
+            {{#if isPrimary}}
+            <a href="link" class="btn btn-primary mb-2">{{text}}</a>
+            {{/if}}
+            {{#if isSecondary}}
+            <a href="link" class="btn btn-secondary">{{text}}</a>
+            {{/if}}
+            {{/each}}
+        </div>
+        <div class="alert alert-secondary m-1">
+            {{#with seller}}
+            <p>{{title}}: <b>{{value}}</b></p>
+            {{/with}}
+        </div>
+        {{/with}}
+    </div>
+</div>
+{{/with}}
+
+<hr class="my-5">
+
+<div class="alert alert-secondary m-3 p-2">
+    {{#each reviewList}}
+    <div class="card m-2">
+        <div class="card header">
+            {{#with title}}
+            <b>{{userName}}</b>
+            <p>caption</p>
+            <p>{{date}}</p>
+            {{/with}}
+            {{#with reviewBody}}
+            <div class="card body">
+                {{#with seller}}
+                <p class="mb-2">{{title}}: {{value}}</p>
+                {{/with}}
+                {{#with rating}}
+                <p class="mb-2">{{title}}: {{value}}</p>
+                {{/with}}
+                {{text}}
+                {{#with advantages}}
+                <b>{{title}}:</b>
+                <p class="mb-2">{{text}}</p>
+                {{/with}}
+                {{#with advantages}}
+                <b>{{title}}:</b>
+                <p class="mb-2">{{text}}</p>
+                {{/with}}
+                <div class="row">
+                    {{#each images}}
+                    <img src={{this}} alt="Photo product" class="col-2">
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#each coments}}
+    <div class="alert alert-secondary m-3 ms-5 p-2">
+        <b class="mb-2">{{userName}}</b>
+        <p class="mb-2">{{date}}</p>
+        <p class="mb-2">{{text}}</p>
+    </div>
+    {{/each}}
+    {{/with}}
+    {{/each}}
+</div>
+
+<hr class="my-5">
+{{> shopaction}}
+<hr class="my-5">
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
