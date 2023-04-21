@@ -9,22 +9,19 @@
 <div class="my-3">
     {{#with newsData}}
     <img heigh="300" width="600" src={{photo}}>
-</div>
 
-<div class="mb-5">
     {{#with head}}
     <h1>{{heading}}</h1>
     <p>{{description}}</p>
     {{/with}}
-</div>
 
-<div class="mb-5">
     {{#each body}}
     <h3>{{title}}</h3>
     <p>{{text}}</p>
     {{/each}}
+    {{/with}}
 </div>
-{{/with}}
+
 
 <hr />
 
