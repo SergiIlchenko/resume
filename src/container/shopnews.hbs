@@ -27,8 +27,12 @@
 
 {{#with newsOtherBlock}}
 <h2 class="text-center">{{title}}</h2>
-<div class="mt-2">
-    {{> shoppost}}
+<div class="row">
+    {{#each cards}}
+    <div class="col-3">
+        {{> shoppost}}
+    </div>
+    {{/each}}
 </div>
 {{/with}}
 
