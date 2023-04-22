@@ -1,19 +1,13 @@
-<div class="col-12">
-    <div class="row g-2">
-        {{#each cards}}
-        <div class="card col-3 mb-4">
-            <div class="card header text-bg-dark">{{title}}
-                {{#if isTop}}
-                <span class="badge text-bg-danger rounded-pill col-4">Топ</span>
-                {{/if}}
-                {{#if isNew}}
-                <span class="badge text-bg-success rounded-pill col-4">Нова</span>
-                {{/if}}
-            </div>
-            <div class="card body text-bg-secondary">
-                <p>{{description}}</p>
-            </div>
-        </div>
-        {{/each}}
+<div class="card mb-4">
+    <div class="card header text-bg-dark">{{title}}
+        {{#if isTop}}
+        <span class="badge text-bg-danger rounded-pill col-4">Топ</span>
+        {{/if}}
+        {{#if isNew}}
+        <span class="badge text-bg-success rounded-pill col-4">Нова</span>
+        {{/if}}
+    </div>
+    <div class="card body text-bg-secondary">
+        <p>{{description}}</p>
     </div>
 </div>
