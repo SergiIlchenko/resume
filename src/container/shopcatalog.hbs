@@ -1,0 +1,97 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<div class="row">
+    <ol class="breadcrumb">
+        {{#each breadcrumb}}
+        <li class="breadcrumb-item mb-5">
+            {{#if url}}
+            <a href={{url}}>{{name}}</a>
+            {{else}}
+            <a>{{name}}</a>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ol>
+</div>
+<h1 class="mb-3">{{header}}</h1>
+<div class="row">
+    {{#each sortBlock}}
+    <div class="col-4 mb-4">
+        <select class="form-select">
+            <option selected>{{placeholder}}</option>
+            {{#each options}}
+            <option value={{value}}>{{text}}</option>
+            {{/each}}
+        </select>
+    </div>
+    {{/each}}
+</div>
+<div class="row">
+    {{#with filterBlock}}
+    <div class="alert alert-secondary col-4 p-1">
+        {{#with sellers}}
+        <div class="form-label">{{title}}</div>
+        {{#each list}}
+        <div class="form-check">
+            <label class="form-check-label">{{value}}</label>
+            <input type="checkbox" class="form-check-input">
+        </div>
+        {{/each}}
+        {{/with}}
+
+        <hr my-2>
+
+        {{#with brands}}
+        <label class="form-label">{{title}}</label>
+        {{#with input}}
+        <input class="form-control mb-2" placeholder={{placeholder}}>
+        {{/with}}
+        {{#each options}}
+        <div class="form-check">
+            <label class="form-check-label">{{value}}</label>
+            <input type="checkbox" class="form-check-input">
+        </div>
+        {{/each}}
+        {{/with}}
+
+        <hr my-2>
+
+        {{#with price}}
+        <label class="form-label">{{title}}</label>
+        {{#with range}}
+        <input class="form-control mb-2" placeholder={{from}}>
+        <input class="form-control mb-2" placeholder={{to}}>
+        {{/with}}
+        {{#with button}}
+        <a href={{link}} class="btn btn-outline-secondary">{{text}}</a>
+        {{/with}}
+        {{/with}}
+
+        {{#each filterList}}
+        <hr my-2>
+        <label class="form-label">{{title}}</label>
+        {{#each options}}
+        <div class="form-check">
+            <label class="form-check-label">{{value}}</label>
+            <input type="checkbox" class="form-check-input">
+        </div>
+        {{/each}}
+        {{/each}}
+    </div>
+    {{/with}}
+
+    <div class="row col-8">
+        {{#each goodsList}}
+        <div class="col-6 my-2">
+            {{> catalogItem}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div class="my-4">
+    {{> shopaction}}
+</div>
+<hr class="mb-4" {{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs Адже наш
+    layout/default.hbs має вже структуру HTML --}}

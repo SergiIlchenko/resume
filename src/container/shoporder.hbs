@@ -140,7 +140,8 @@
                 {{#each select}}
                 <div class="col-6">
                     <label class="form-label">{{label}}</label>
-                    <select class="form-select" placeholder={{placeholder}}>
+                    <select class="form-select">
+                        <option selected>{{placeholder}}</option>
                         {{#each options}}
                         <option value={{value}}>{{text}}</option>
                         {{/each}}
@@ -224,7 +225,8 @@
             {{#with select}}
             {{#with availabel_coupon}}
             <label class="form-label">{{label}}</label>
-            <select class="form-select-lg mb-3" placeholder={{placeholder}}>
+            <select class="form-select-lg mb-3">
+                <option selected>{{placeholder}}</option>
                 {{#each options}}
                 <option value={{value}}>{{text}}</option>
                 {{/each}}
